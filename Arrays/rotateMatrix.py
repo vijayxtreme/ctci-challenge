@@ -32,6 +32,7 @@ So a square could look like
 def rotate90(pair):
     x = pair[0]
     y = pair[1]
+    #this is bad because it's just hardcoded
     if x == 0 and y == 0:
         return [0,1]
     elif x == 0 and y == 1:
