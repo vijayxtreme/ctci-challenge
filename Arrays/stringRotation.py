@@ -13,4 +13,28 @@ Essentially a substring of the first word is somewhere in the second string.  We
 
 If we moved the characters one by one over to the right, the characters would end up again on the other side.  Like a scrolling LED.  This could also work in reverse.  All we would have to do is scroll the text to the right or left until it matched the original string at the same index.  Then we could call the isSubstring function to check.  The trick here is assuming the letters all remain in the same ordering even if they "move" left or right.
 
+We can double the string1 and string2 would then be in it for sure.
+
+x = "wat"
+y = "erbottle"
+yx = "erbottlewat"
+xy = "waterbottle"
+xyxy = "waterbottlewaterbottle"
+
+yx in xyxy -> "erbottlewat" in "waterbottlewaterbottle" -> True
+
+Questions: 
+What if we have repeated letters?
+Will string always be words?
 '''
+def stringRotation(string1, string2):
+    if len(string1) != len(string2):
+        #not a rotation
+        return False 
+    
+    print(string1 * 2)
+
+    return string2 in string1*2
+    
+res = stringRotation("waterbottle", "erbottlewat")
+print(res)

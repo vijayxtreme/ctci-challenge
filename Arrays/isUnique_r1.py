@@ -16,6 +16,7 @@ def isUnique(str):
 
     uniqs = [False] * 128
     for i in range(0, len(str)):
+        #ord converts to ascii 1-128, which is fine for an array
         val = ord(str[i])
         if uniqs[val]:
             return False

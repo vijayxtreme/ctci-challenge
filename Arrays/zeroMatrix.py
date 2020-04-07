@@ -1,4 +1,5 @@
 #Zero Matrix
+#Difficult - please study again
 '''
 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 
@@ -37,8 +38,8 @@ l = [
 ]
 
 l2 = [
-    [1,1,1],
-    [1,0,3]
+    [0,1,1,0,5],
+    [1,1,3,4,1]
 ]
 
 def zeroMatrix(arr):
@@ -53,20 +54,27 @@ def zeroMatrix(arr):
             print(arr[i][j], end='')
         print('')
 
-    # print(t)
+    print(t)
     #Check all rows saved in t.
     for i in range(0, len(t)):
         for k in range(0, len(arr)):
             for l in range(0, len(arr[k])):
+                #make all the affected rows 0
                 arr[t[i][0]][l] = 0
 
     #Check all cols saved in t.
     for i in range(0, len(t)):
         for k in range(0, len(arr)):
             for l in range(0, len(arr[k])):
+                #make all the affected cols 0
                 arr[k][t[i][1]] = 0
-        
+    
+    #Print result
+    print("="*3)
+    for i in range(0, len(arr)):
+        for j in range(0, len(arr[i])):
+            print(arr[i][j], end='')
+        print('')
 
-    print(arr)
 #zeroMatrix(l)
 zeroMatrix(l2)

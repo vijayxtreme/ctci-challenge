@@ -24,20 +24,24 @@ def oneAway(str1, str2):
     copy_str = ""
 
     if len(str1) - len(str2) > 1:
-        print(False, "Lengths not same")
+        print(False, "Lengths off by more than 1")
         return False 
 
     if len(str1) - len(str2) == 1:
+        #off by 1
         counter +=1
     
-    # at this point, we know lengths of str1 & str2 are same, so easy to compare
-    if len(str1) == len(str2):
-        for i in range(0, len(str1)):
-            if(str1[i] != str2[i]):
-                counter += 1
+    # at this point, we know lengths of str1 & str2 are same or off by 1, so next compare
+    for i in range(0, len(str1)):
+        if str1[i] != str2[i] and str1[i+1] != str2[i] and i < len(str2):
+            counter +=1
+            if counter > 1:
+                break;
 
+        if i+1 >= len(str2):
+            break;
+        
     print(counter)
-
     #not one away
     if counter > 1:
         return False 
@@ -45,7 +49,7 @@ def oneAway(str1, str2):
     #one
     return True
 
-res = oneAway("pale", "ple")
+res = oneAway("pale", "plz")
 res2 = oneAway("pales", "pale")
 res3 = oneAway("pale", "bale")
 res4 = oneAway("pale", "bake")
